@@ -4,4 +4,13 @@
 # "# and !", is a special directive which Unix treats specially.
 # Give executive permission before running script like chmod 755 first.sh
 # Run with ./filename.sh
-echo Hello World  
+echo Hello Scripting World  
+
+echo "Hello World"
+echo "Hello * World"
+echo Hello * World
+echo Hello      World
+echo "Hello" World
+echo Hello "     " World
+echo "Hello "*" World"
+echo `hello` world
