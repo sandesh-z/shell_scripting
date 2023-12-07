@@ -1,0 +1,6 @@
+this file is called test_file.txt and we are using it as an example input.
+hello
+gday
+bonjour
+hola
+guten tag
