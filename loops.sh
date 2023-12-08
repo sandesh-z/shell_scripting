@@ -1,46 +1,30 @@
-#!/bin/bash
+echo -en "Please guess the magic number: "
+read X
+echo $X | grep "[^0-9]" > /dev/null 2>&1
+if [ "$?" -eq "0" ]; then
+  # If the grep found something other than 0-9
+  # then it's not an integer.
+  echo "Sorry, wanted a number"
+else
+  # The grep found only 0-9, so it's an integer. 
+  # We can safely do a test on it.
+  if [ "$X" -eq "7" ]; then
+    echo "You entered the magic number!"
+  fi
+fi
 
-#for loops
-for i in 1,2,3,4,5,9
-do
-    echo "Looping..number $i"
-done    
+#if statement also can be written with:
 
-#every thing that comes after "for i in " is set to i 
-for i in hello 1 * 2 goodbye
-do
-    echo "Looping.. i is set to $i"
-done    
+[ $X -ne 0 ] && echo "X isn't zero" || echo "X is zero"
+[ -f $X ] && echo "X is a file" || echo "X is not a file"
+[ -n $X ] && echo "X is of non-zero length" || \
+      echo "X is of zero length"
 
-#while loops
-INPUT_STRING=Hello
-while [ "$INPUT_STRING" != "bye" ] #space around "[" and "!=" is required if not syntax error is thrown
-do 
-    echo "Please type something in (bye to quit)"
-    read INPUT_STRING
-    echo "You entered $INPUT_STRING"
-done    
-
-# #
-while :
-do
-  echo "Please type something in (^C to quit)"
-  read INPUT_STRING
-  echo "You typed: $INPUT_STRING"
-done
-
-#cases with while loops
-#file should end with new line to read every line..
-while read input_text
-do
-  case $input_text in
-        hello)          echo English    ;;
-        howdy)          echo American   ;;
-        gday)           echo Australian ;;
-        bonjour)        echo French     ;;
-        "guten tag")    echo German     ;;
-        hola)           echo Spanish    ;;
-        *)              echo Unknown Language: $input_text
-        ;; # ";;" ends each statement in switch case and "esac" ends switch case
-   esac
-done < test_file.txt #read text from test_file.txt 
+#
+# X=0
+# while [ -n "$X" ]
+# do
+#   echo "Enter some text (RETURN to quit)"
+#   read X
+#   echo "You said: $X"
+# done      
