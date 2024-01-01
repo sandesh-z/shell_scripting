@@ -7,7 +7,7 @@ read myname
 #here default value would would be whoami which is defined with :-'whoami'
 echo "Your name is : ${myname:-`whoami`}"
 
-#here default value would be John Doe
+#here default value would be John Does
 echo "Your name is : ${myname:-John Doe}"
 
 #another way to define default variable
